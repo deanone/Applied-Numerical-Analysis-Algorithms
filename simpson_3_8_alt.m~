@@ -1,5 +1,0 @@
-% clear;
-% clc;
-% format long;
-
-f = @(x) 1 ./ (1 + 2*x + 3*x.^2);
