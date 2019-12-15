@@ -1,0 +1,17 @@
+function [ x, i, err ] = fixed_point( g, x0, N, tol ) 
+    for i = 1:N
+        x = g(x0);
+        fprintf('%3.0f %20.14f %20.14f\n', i, x, abs(x - x0));
+        err = abs(x - x0);
+        if err < tol
+            break;
+        end
+        x0 = x;
+    end
+    
+    if abs(x - x0) < tol
+        fprintf('Fixed-point method converged to x = %f after %d iterations\n', x, i);
+    else
+        fprintf('Fixed-point method failed to converge after %d iterations\n', N);
+    end
+end
